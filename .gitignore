@@ -1,3 +1,7 @@
+nginx-*/objs
+nginx-*/Makefile
+build/
+
 *.tar.gz
 
 *.swp
