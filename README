@@ -1,0 +1,51 @@
+Hello!
+You're trying to compile nginx from sources.
+To do this,
+Download the latest stable release:
+wget http://nginx.org/download/nginx-1.10.2.tar.gz
+Unzip it:
+tar zxf nginx-1.10.2.tar.gz
+
+Before building, figure out what nginx options you'd like to set.
+All default nginx options can be set by passing arguments to nginx-<x.x.x>/configure
+For example,
+./configure --prefix=</path/to/installation/directory>
+will set the directory that 'make install' uses.
+This is very handy; all nginx configuration files as well as the executable end up in this directory.
+This enables you to have several customized nginx setups running on the same system.
+
+For this demonstration, run:
+./configure_nginx.sh
+This enters the options that we're interested in.
+Then, run:
+cd nignx-1.10.2
+make
+make install
+
+or:
+make -C nginx-1.10.2
+make -C nginx-1.10.2 install
+
+All files will now be found in build/
+For example, to start nginx run:
+./build/sbin/nginx
+or run
+./start_nginx.sh
+
+But don't forget to change the default port first.
+
+Stop nginx with:
+./build/sbin/nginx -s quit
+or:
+./stop_nginx.sh
+
+The nginx.conf file can be found in:
+./build/conf/nginx.conf
+
+Go change:
+http {
+    server {
+        listen       80;
+To something else (10000?).
+
+Good luck!
